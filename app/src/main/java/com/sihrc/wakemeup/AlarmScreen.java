@@ -17,8 +17,8 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class AlarmScreen extends Activity {
-
     private static final int WAKELOCK_TIMEOUT = 60 * 1000;
+
     public final String TAG = this.getClass().getSimpleName();
     private WakeLock mWakeLock;
     private MediaPlayer mPlayer;
@@ -39,7 +39,7 @@ public class AlarmScreen extends Activity {
         tvName.setText(name);
 
         TextView tvTime = (TextView) findViewById(R.id.alarm_screen_time);
-        tvTime.setText(String.format("%02d : %02d", timeHour, timeMinute));
+        tvTime.setText(Utils.formatTimeAmPm(timeHour, timeMinute));
 
         Button dismissButton = (Button) findViewById(R.id.alarm_screen_button);
         dismissButton.setOnClickListener(new OnClickListener() {
@@ -54,15 +54,13 @@ public class AlarmScreen extends Activity {
         //Play alarm tone
         mPlayer = new MediaPlayer();
         try {
-            if (tone != null && !tone.equals("")) {
+            if (tone != null && !tone.isEmpty()) {
                 Uri toneUri = Uri.parse(tone);
-                if (toneUri != null) {
-                    mPlayer.setDataSource(this, toneUri);
-                    mPlayer.setAudioStreamType(AudioManager.STREAM_ALARM);
-                    mPlayer.setLooping(true);
-                    mPlayer.prepare();
-                    mPlayer.start();
-                }
+                mPlayer.setDataSource(this, toneUri);
+                mPlayer.setAudioStreamType(AudioManager.STREAM_ALARM);
+                mPlayer.setLooping(true);
+                mPlayer.prepare();
+                mPlayer.start();
             }
         } catch (Exception e) {
             e.printStackTrace();

@@ -15,6 +15,11 @@ public class Utils {
             }
         }
 
+        if (hour == 0) {
+            hour += 12;
+            time = " AM";
+        }
+
         return ' ' + String.valueOf(hour) + " : " + String.valueOf(minute) + time;
     }
 }
