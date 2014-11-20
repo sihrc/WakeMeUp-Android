@@ -10,28 +10,26 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="28dp"
-        android:text="Alarm!"
-        android:textSize="38dp" />
+        android:text="@string/alarm_title_screen"
+        android:textSize="@dimen/alarm_title_font" />
 
     <TextView
         android:id="@+id/alarm_screen_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/alarm_screen_button"
-        android:layout_below="@+id/alarm_screen_title"
+        android:layout_alignLeft="@id/alarm_screen_button"
+        android:layout_below="@id/alarm_screen_title"
         android:layout_marginTop="28dp"
-        android:text="00 : 00"
-        android:textSize="52dp" />
+        android:textSize="@dimen/screen_time_font" />
 
     <TextView
         android:id="@+id/alarm_screen_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/alarm_screen_time"
+        android:layout_below="@id/alarm_screen_time"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="28dp"
-        android:text="Alarm name" />
-    
+        android:layout_marginTop="28dp"/>
+
     <Button
         android:id="@+id/alarm_screen_button"
         android:layout_width="wrap_content"
@@ -39,7 +37,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="106dp"
-        android:text="Dismiss"
-        android:textSize="38dp" />
+        android:text="@string/alarm_dimiss"
+        android:textSize="@dimen/alarm_dismiss_font" />
 
 </RelativeLayout>

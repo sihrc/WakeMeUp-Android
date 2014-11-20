@@ -21,5 +21,7 @@
     <string name="tuesday">T</string>
     <string name="wednesday">W</string>
     <string name="friday">F</string>
+    <string name="alarm_title_screen">Alarm!</string>
+    <string name="alarm_dimiss">Dismiss</string>
 
 </resources>
