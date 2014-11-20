@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="ALARM_VIEW_TAG" type="id"/>
+    <item name="ALARM_ID_TAG" type="id"/>
+</resources>

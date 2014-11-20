@@ -1,6 +1,8 @@
 package com.sihrc.wakemeup;
 
 import android.app.Activity;
+import android.app.Fragment;
+import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -12,6 +14,18 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // Show List Fragment
+        getFragmentManager().beginTransaction()
+                .add(R.id.fragment_container, AlarmListFragment.newInstance(), AlarmListFragment.TAG)
+                .commit();
+    }
+
+    public void switchToFragment(TaggedFragment fragment, boolean addToBackStack) {
+        FragmentTransaction transaction = getFragmentManager().beginTransaction().replace(R.id.fragment_container, fragment);
+        if (addToBackStack)
+            transaction.addToBackStack(fragment.tag());
+        transaction.commit();
     }
 
 
